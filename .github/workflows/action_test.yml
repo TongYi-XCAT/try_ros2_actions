@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: check repo
       uses: actions/checkout@v4
-
-    - run: source /opt/ros/humble/setup.bash
-    - run: printenv | grep -i ROS 
+    - name: create ros2 humble env
+      uses: ros-tooling/setup-ros@v0.7
+      with:
+        required-ros-distributions: humble
+    - run: "source /opt/ros/humble/setup.bash && ros2 run --help"
