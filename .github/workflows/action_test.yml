@@ -1,13 +1,13 @@
 on: push
 
 jobs:
-  job1:
+  workspace_check:
+    name: test_workspace
     runs-on: ubuntu-22.04
+    
     steps:
-    - run: pwd
-    - run: ls
-  job2:
-    runs-on: ubuntu-22.04
-    steps:
+    - name: check repo
+      uses: actions/checkout@v4
+
     - run: source /opt/ros/humble/setup.bash
-    - run: printenv | grep -i ROS
+    - run: printenv | grep -i ROS 
