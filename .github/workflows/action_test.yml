@@ -2,10 +2,12 @@ on: push
 
 jobs:
   job1:
+    runs-on: ubuntu-22.04
     steps:
     - run: pwd
     - run: ls
   job2:
+    runs-on: ubuntu-22.04
     steps:
     - run: source /opt/ros/humble/setup.bash
     - run: printenv | grep -i ROS
